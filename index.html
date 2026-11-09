@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123c3c">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>めだかの時間 — 予約撮影</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><span class="eyebrow">MEDAKA OBSERVATORY</span><h1>めだかの時間<span class="fish"> ◦ ⋈</span></h1><p>水槽を見守る、毎日の記録。</p></header>
+<main>
+<section class="notice"><strong>不在撮影の前に</strong><p>Safariを前面にして画面を点灯したまま、充電してお使いください。ロック・アプリ切替・容量不足・発熱で撮影が止まる場合があります。確実な無人撮影を保証するものではありません。</p><p>背面カメラ1台で、水槽2つが同じ画角に入るように固定してください。音声は録音しません。</p></section>
+<section class="card"><div class="row"><h2>カメラ</h2><span id="status" role="status">準備前</span></div>
+<div class="preview"><video id="preview" autoplay muted playsinline></video><span id="previewHint">カメラを許可すると、ここに映ります</span></div>
+<p id="cameraInfo">目標画質：1280 × 720 / 30fps</p><button id="prepare">① カメラを許可・準備する</button><button id="release" class="secondary" disabled>カメラを閉じる</button>
+<p id="wakeInfo">画面点灯維持：未取得</p><p id="storageInfo">保存容量を確認中…</p>
+<p id="message" role="alert" aria-live="assertive"></p></section>
+<section class="card"><h2>毎日の予約 <small>日本時間（JST）</small></h2><div class="slots"><div><b>09:00</b><span>〜 09:30</span></div><div><b>17:00</b><span>〜 17:30</span></div></div>
+<p>予約はこの画面を開いている間だけ有効です。再読込・非表示・カメラ異常時は、再度準備して予約を有効にしてください。</p>
+<button id="arm" disabled>② 毎日の予約を有効にする</button><button id="disarm" class="secondary" disabled>予約を解除する</button>
+<div class="countdown"><span id="nextLabel">予約は無効です</span><strong id="countdown">--:--:--</strong></div><p id="recordInfo">録画していません</p>
+<button id="test" class="secondary" disabled>1分後にテスト録画（30秒間）</button><button id="stop" class="danger" disabled>録画を停止する</button></section>
+<section class="card"><div class="row"><h2>端末内の動画</h2><button id="refresh" class="textButton">更新</button></div><p>端末のSafari内に自動保存します。大切な動画は「書き出す」を押して「ファイル」に保存してください。写真への保存は共有先で対応している場合に操作できます。</p><p class="muted">書き出し時は動画全体をメモリに読み込みます。30分の動画は端末のメモリ不足で書き出せない可能性があります。書き出しを確認するまで削除しないでください。</p><div id="recordings">保存された動画はありません</div></section>
+<section class="card"><h2>撮影の履歴</h2><p>開始・終了・失敗・中断を記録します。OSによる強制終了や画面ロックの原因は正確に判別できません。</p><ol id="history"></ol></section>
+<footer>動画の外部送信はありません。<a href="https://github.com/kohaochagasuki-svg/medaka-ios-recorder#readme" target="_blank" rel="noopener">使い方と制限</a></footer>
+</main><script type="module" src="app.js"></script>
+</body></html>
